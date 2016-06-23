@@ -1,0 +1,86 @@
+java weka.filters.unsupervised.attribute.Discretize -B 10 -M -1.0 -R 1,2,5,11 -b -i /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/buy_treinamento_sem_missing.arff -o /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/buy_treinamento_sem_missing_disc.arff -r /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/buyteste_sem_preprocessamento_fixed_types.arff -s /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/buyteste_disc.arff
+
+java weka.filters.unsupervised.attribute.Discretize -B 6 -M -1.0 -R 5,11 -b -i /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/buy_treinamento_sem_missing_disc.arff -o /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/buy_treinamento_sem_missing_disc2.arff -r /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/buyteste_disc.arff -s /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/buyteste_disc2.arff
+
+1R
+77.9474   7 LOCATION
+60.475    2 INCOME
+56.9975  10 BUY18
+56.3189  11 VALUE24
+55.0466   1 AGE
+52.5869   9 BUY12
+52.1628   4 MARRIED
+51.9932  12 MOVED
+51.9084   8 BUY6
+51.6539   3 GENDER
+51.6539   5 FICO
+50.7209   6 OWNHOME
+
+Gain
+0.138285   7  LOCATION
+ 0.016055  10 BUY18
+ 0.014763  12 MOVED
+ 0.014      2 INCOME
+ 0.009172  11 VALUE24
+ 0.005462   1 AGE
+ 0.002142   5 FICO
+ 0.002136   6 OWNHOME
+ 0.001759   4 MARRIED
+ 0.000762   3 GENDER
+ 0          9 BUY12
+ 0          8 BUY6
+
+InfoGAin
+LOCATION
+ 0.041949   2 INCOME
+ 0.023597  11 VALUE24
+ 0.015565   1 AGE
+ 0.015084  10 BUY18
+ 0.005579   5 FICO
+ 0.003094  12 MOVED
+ 0.001806   6 OWNHOME
+ 0.001695   4 MARRIED
+ 0.000761   3 GENDER
+ 0          9 BUY12
+ 0          8 BUY6
+
+Relief
+ LOCATION
+ 0.022731   2 INCOME
+ 0.014673  11 VALUE24
+ 0.011677  10 BUY18
+ 0.010348   3 GENDER
+ 0.00933    6 OWNHOME
+-0.000933  12 MOVED
+-0.001696   9 BUY12
+-0.002375   4 MARRIED
+-0.002672   8 BUY6
+-0.004411   1 AGE
+-0.02782    5 FICO
+
+Correlation
+0.2801   7  LOCATION
+ 0.1565  10 BUY18
+ 0.0807   2 INCOME
+ 0.065   12 MOVED
+ 0.0643  11 VALUE24
+ 0.05     6 OWNHOME
+ 0.0485   4 MARRIED
+ 0.0391   9 BUY12
+ 0.0339   1 AGE
+ 0.0325   3 GENDER
+ 0.0258   8 BUY6
+ 0.0178   5 FICO
+
+java weka.filters.unsupervised.attribute.Remove -R 3 -b -i /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/buy_treinamento_sem_missing_disc.arff -o /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/buy_treinamento_sem_missing_disc_sem_gender.arff -r /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/buyteste_disc.arff -s /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/buyteste_disc_sem_gender.arff
+
+java weka.filters.unsupervised.attribute.Remove -R 8 -b -i /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/buy_treinamento_sem_missing_disc.arff -o /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/buy_treinamento_sem_missing_disc_sem_buy6.arff -r /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/buyteste_disc.arff -s /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/buyteste_disc_sem_buy6.arff
+
+java weka.filters.unsupervised.attribute.Remove -R 5 -b -i /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/buy_treinamento_sem_missing_disc.arff -o /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/buy_treinamento_sem_missing_disc_sem_fico.arff -r /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/buyteste_disc.arff -s /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/buyteste_disc_sem_fico.arff
+
+java weka.filters.unsupervised.attribute.Remove -R 3,5,8 -b -i /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/buy_treinamento_sem_missing_disc.arff -o /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/buy_treinamento_sem_missing_disc_sem_bottom3.arff -r /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/buyteste_disc.arff -s /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/buyteste_disc_sem_bottom3.arff
+
+java weka.filters.unsupervised.attribute.Remove -R 3,5,8,12 -b -i /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/buy_treinamento_sem_missing_disc.arff -o /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/buy_treinamento_sem_missing_disc_sem_bottom3_sem_moved.arff -r /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/buyteste_disc.arff -s /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/buyteste_disc_sem_bottom3_sem_moved.arff
+
+java weka.filters.unsupervised.attribute.Remove -R 2,7,10 -b -i /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/buy_treinamento_sem_missing_disc.arff -o /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/buy_treinamento_sem_missing_disc_sem_top3.arff -r /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/buyteste_disc.arff -s /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/buyteste_disc_sem_top3.arff
+
