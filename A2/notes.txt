@@ -1,0 +1,111 @@
+# Normalize
+java weka.filters.unsupervised.attribute.Standardize -b -i /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buytreinamento_sem_preprocessamento_fixed_types.arff -o /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buy_treinamento_std.arff -r /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buyteste_sem_preprocessamento_fixed_types.arff -s /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buyteste_std.arff
+
+# Discretize VALUE24 to 10 bins
+java weka.filters.unsupervised.attribute.Discretize -B 10 -M -1.0 -R 11 -b -i /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buy_treinamento_std.arff -o /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buy_treinamento_std_value24b10.arff -r /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buyteste_std.arff -s /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buyteste_std_value24b10.arff
+
+# Discretize AGE, INCOME, FICO to 5 bins
+java weka.filters.unsupervised.attribute.Discretize -B 5 -M -1.0 -R 1,2,5 -b -i /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buy_treinamento_std_value24b10.arff -o /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buy_treinamento_std_value24b10_ageIncomeFicoB5.arff -r /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buyteste_std_value24b10.arff -s /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buyteste_std_value24b10_ageIncomeFicoB5.arff
+
+# Discretize VALUE24, FICO to 6 bins
+java weka.filters.unsupervised.attribute.Discretize -B 6 -M -1.0 -R 5,11 -b -i /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buy_treinamento_std.arff -o /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buy_treinamento_std_value24FicoB6.arff -r /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buyteste_std.arff -s /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buyteste_std_value24FicoB6.arff
+
+# Discretize AGE, INCOME to 5 bins
+java weka.filters.unsupervised.attribute.Discretize -B 5 -M -1.0 -R 1,2 -b -i /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buy_treinamento_std_value24FicoB6.arff -o /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buy_treinamento_std_value24FicoB6_ageIncomeB5.arff -r /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buyteste_std_value24FicoB6.arff -s /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buyteste_std_value24FicoB6_ageIncomeB5.arff
+
+# Discretize AGE, INCOME, FICO, VALUE24 to 10 bins
+java weka.filters.unsupervised.attribute.Discretize -B 10 -M -1.0 -R 1,2,5,11 -b -i /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buy_treinamento_std.arff -o /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buy_treinamento_std_value24AgeIncomeFicoB10.arff -r /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buyteste_std.arff -s /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buyteste_std_value24AgeIncomeFicoB10.arff
+
+# Discretize AGE, INCOME, FICO, VALUE24 to 4 bins
+java weka.filters.unsupervised.attribute.Discretize -B 4 -M -1.0 -R 1,2,5,11 -b -i /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buy_treinamento_std.arff -o /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buy_treinamento_std_value24AgeIncomeFicoB4.arff -r /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buyteste_std.arff -s /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buyteste_std_value24AgeIncomeFicoB4.arff
+
+# Discretize BUY{6,12,18} attributes into 2 bins
+java weka.filters.unsupervised.attribute.Discretize -B 2 -M -1.0 -R 8,9,10 -b -i /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buy_treinamento_std_value24FicoB6_ageIncomeB5.arff -o /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buy_treinamento_std_value24FicoB6_ageIncomeB5_buys2B.arff -r /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buyteste_std_value24FicoB6_ageIncomeB5.arff -s /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buyteste_std_value24FicoB6_ageIncomeB5_buys2B.arff
+
+# OneR
+Ranked attributes:
+78.176   7 LOCATION
+60.342   2 INCOME
+56.678  11 VALUE24
+56.352  10 BUY18
+55.537   1 AGE
+52.85    4 MARRIED
+52.606   5 FICO
+51.71    3 GENDER
+51.71    6 OWNHOME
+51.629   9 BUY12
+51.221  12 MOVED
+50.814   8 
+
+# Gain
+Ranked attributes:
+ 0.137036   7 LOCATION
+ 0.016712   2 INCOME
+ 0.016158  12 MOVED
+ 0.014256  10 BUY18
+ 0.009607  11 VALUE24
+ 0.005798   1 AGE
+ 0.001938   6 OWNHOME
+ 0.00165    5 FICO
+ 0.001458   4 MARRIED
+ 0.000665   3 GENDER
+ 0          9 BUY12
+ 0          8 BUY6
+
+# InfoGain
+Ranked attributes:
+ 0.359999   7 LOCATION
+ 0.033953   2 INCOME
+ 0.018308  11 VALUE24
+ 0.013399  10 BUY18
+ 0.011107   1 AGE
+ 0.003411  12 MOVED
+ 0.003139   5 FICO
+ 0.001637   6 OWNHOME
+ 0.001406   4 MARRIED
+ 0.000665   3 GENDER
+ 0          9 BUY12
+ 0          8 BUY6
+
+Selected attributes: 7,2,11,10,1,12,5,6,4,3,9,8 : 12
+
+# Relief
+Ranked attributes:
+ 0.3176710097720034         7 LOCATION
+ 0.014196524359103372      10 BUY18
+ 0.012019543973941341       2 INCOME
+ 0.00838762214983712       11 VALUE24
+ 0.007459283387622137       1 AGE
+ 0.005130293159609118       6 OWNHOME
+ 0.00004071640004246355     9 BUY12
+ 0.0000000000000000006103   3 GENDER
+-0.0000000000000000000226  12 MOVED
+-0.00118078159223427        8 BUY6
+-0.0061889250814332174      4 MARRIED
+-0.013721498371335497       5 FICO
+
+# Correlation
+Ranked attributes:
+ 0.2819   7 LOCATION
+ 0.1505  10 BUY18
+ 0.0991   2 INCOME
+ 0.0874  11 VALUE24
+ 0.068   12 MOVED
+ 0.0592   6 OWNHOME
+ 0.0589   4 MARRIED
+ 0.0336   1 AGE
+ 0.0323   9 BUY12
+ 0.0311   5 FICO
+ 0.0137   8 BUY6
+ 0.0131   3 GENDER
+
+ buy_treinamento_std_value24FicoB6_ageIncomeB5
+
+# Remove BUY6
+java weka.filters.unsupervised.attribute.Remove -R 8 -b -i /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buy_treinamento_std_value24FicoB6_ageIncomeB5.arff -o /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buy_treinamento_std_value24FicoB6_ageIncomeB5_semBuy6.arff -r /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buyteste_std_value24FicoB6_ageIncomeB5.arff -s /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buyteste_std_value24FicoB6_ageIncomeB5_semBuy6.arff
+
+# Remove GENDER
+java weka.filters.unsupervised.attribute.Remove -R 8 -b -i /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buy_treinamento_std_value24FicoB6_ageIncomeB5.arff -o /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buy_treinamento_std_value24FicoB6_ageIncomeB5_.arff -r /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buyteste_std_value24FicoB6_ageIncomeB5.arff -s /Users/calmattoso/OneDrive/PUC/ENG1034_DataMining/Trabalho_2/buyteste_std_value24FicoB6_ageIncomeB5_.arff
+
+
+
